@@ -1,46 +1,103 @@
-# 📄 DocuForge-Android
+# 📄 DocuForge — Android Document Engine
 
-A modern Android document viewer supporting multiple file formats with cloud-powered conversion.
+## 🚀 Overview
 
-## 🚀 Features
+DocuForge is a modern Android application that supports viewing multiple document formats using a hybrid **local + cloud-powered rendering pipeline**.
 
-* 📄 PDF Viewer (native rendering)
-* 📝 TXT Viewer (infinite scroll + search)
-* 📊 Excel Viewer
-* 📽️ PPT/PPTX Viewer (CloudConvert → PDF pipeline)
+It handles complex formats like PPT by converting them into viewable PDFs using a cloud API, then caching results locally for performance.
 
-## ⚡ Tech Stack
+---
 
-* Kotlin + Jetpack Compose
-* Android PDF Viewer
-* Apache POI (Excel)
-* CloudConvert API (PPT support)
-* OkHttp
+## ✨ Features
+
+### 📄 Multi-Format Support
+
+* PDF Viewer (native rendering)
+* TXT Viewer (infinite scroll + search)
+* Excel Viewer (Apache POI)
+* PPT/PPTX Viewer (cloud-based conversion)
+
+---
+
+### ⚙️ Smart Rendering Pipeline
+
+For unsupported formats (like PPT):
+
+```bash
+PPT → CloudConvert API → PDF → Local Cache → Viewer
+```
+
+* Converts documents to a renderable format
+* Stores converted files locally
+* Avoids repeated API calls
+
+---
+
+### ⚡ Performance Optimizations
+
+* Local caching of converted files
+* Reduced API calls
+* Smooth UI rendering
+* Progress tracking during conversion
+
+---
 
 ## 🧠 Architecture
 
-PPT → CloudConvert → PDF → Local Cache → Viewer
+* UI Layer → Jetpack Compose
+* Processing Layer → File handling + conversion logic
+* Network Layer → CloudConvert API
+* Storage Layer → Local cache for converted files
+
+---
+
+## 🛠️ Tech Stack
+
+* Kotlin
+* Jetpack Compose
+* OkHttp (networking)
+* Apache POI (Excel parsing)
+* Android PDF Viewer
+* CloudConvert API
+
+---
 
 ## 🔐 Setup
 
 Create a `local.properties` file:
 
-```
+```bash
 CLOUD_CONVERT_API_KEY=your_api_key_here
 ```
+---
 
-## 📌 Notes
+## ⚠️ Notes
 
 * PPT conversion requires internet
 * Large files may take time due to cloud processing
-
-## 🔥 Future Improvements
-
-* PDF caching (avoid re-conversion)
-* Progress tracking UI
-* Offline PPT rendering
-* Slide thumbnail preview
+* Cached files improve performance on repeat access
 
 ---
 
-Built as part of a high-performance document rendering system.
+## 🚀 Future Improvements
+
+* Offline PPT rendering
+* Slide preview thumbnails
+* Multi-tab document support
+* File annotation (highlight, notes)
+* Cloud storage integration (Drive, Dropbox)
+
+---
+
+## 🎯 Key Highlights
+
+* Hybrid cloud-local processing architecture
+* Handles complex document formats efficiently
+* Designed for performance and scalability
+* Demonstrates real-world system design thinking
+
+---
+
+## 📄 License
+
+MIT License
